@@ -1,0 +1,33 @@
+﻿@model Dictionary<int, String>
+
+@using (Html.BeginForm("Assignees", "Employee"))
+{
+    <div class="form-group">
+        @Html.Label("Manager", new { @class = "control-label" })
+
+        <select name="option" class="form-control">
+            @foreach (var idfullname in Model)
+            {
+                <option value="@idfullname.Value,@idfullname.Key">@idfullname.Value</option>
+            }
+        </select>
+
+        @foreach (var idfullname in Model)
+        {
+            <li>@Html.ActionLink(idfullname.Value, "Assignees", "Employee", new { ManagerEmpId = @idfullname.Key }, null)</li>
+
+        }
+
+    </div>
+
+    <input type="submit" value="Assignee Details" class="btn btn-primary" />
+}
+
+@using (Html.BeginForm("NewEmployee", "Employee"))
+{
+    <div class="form-group">
+        <input type="submit" value="Add Employee" class="btn btn-primary" />
+    </div>
+}
+
+

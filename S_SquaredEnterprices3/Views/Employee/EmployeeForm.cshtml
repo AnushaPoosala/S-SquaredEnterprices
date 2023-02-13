@@ -1,0 +1,33 @@
+﻿@model S_SquaredEnterprices3.Models.Employee
+@{
+    ViewBag.Title = "EmployeeForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add New Employee</h2>
+
+@using (Html.BeginForm("Save", "Movies"))
+{
+    <div class="form-group">
+        @Html.LabelFor(e=>e.EmployeeId)
+        @Html.TextBoxFor(e=>e.EmployeeId, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(e => e.FirstName)
+        @Html.TextBoxFor(e => e.FirstName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(e => e.LastName)
+        @Html.TextBoxFor(e => e.LastName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(e => e.Role.RoleName)
+        @Html.TextBoxFor(e => e.Role.RoleName, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+

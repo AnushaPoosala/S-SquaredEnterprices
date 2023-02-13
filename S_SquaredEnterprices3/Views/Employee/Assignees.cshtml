@@ -1,0 +1,24 @@
+﻿@model Dictionary<int, Tuple<string, string>>
+@{
+    ViewBag.Title = "Assignees";
+}
+
+<h2>Assignees</h2>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Employee Id</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+    </tr>
+    @foreach (var row in Model)
+    {
+        <tr>
+            <td>@row.Key</td>
+            <td>@row.Value.Item1</td>
+            <td>@row.Value.Item2</td>
+        </tr>
+    }
+
+</table>
+
